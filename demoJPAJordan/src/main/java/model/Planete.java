@@ -2,6 +2,8 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,23 +18,22 @@ public class Planete {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="lib")
-	private String libelle;
-	private String typePlanete;
-	private double diametre;
+	@Column(name="lib",columnDefinition = "VARCHAR(12)",unique = true)
 	
+	private String libelle;
+	
+	@Enumerated(EnumType.STRING)
+	private TypePlanete typePlanete;
+
+	private Double diametre;
 
 	public Planete() {}
 	
-	public Planete(String libelle, String typePlanete, double diametre) {
+	public Planete(String libelle, TypePlanete typePlanete, Double diametre) {
 		this.libelle = libelle;
 		this.typePlanete = typePlanete;
 		this.diametre = diametre;
 	}
-	
-	
-	
-
 	
 	public String getLibelle() {
 		return libelle;
@@ -40,16 +41,16 @@ public class Planete {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public String getTypePlanete() {
+	public TypePlanete getTypePlanete() {
 		return typePlanete;
 	}
-	public void setTypePlanete(String typePlanete) {
+	public void setTypePlanete(TypePlanete typePlanete) {
 		this.typePlanete = typePlanete;
 	}
-	public double getDiametre() {
+	public Double getDiametre() {
 		return diametre;
 	}
-	public void setDiametre(double diametre) {
+	public void setDiametre(Double diametre) {
 		this.diametre = diametre;
 	}
 
