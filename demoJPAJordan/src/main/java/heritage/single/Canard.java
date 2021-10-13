@@ -4,13 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 @DiscriminatorValue("duck")
 public class Canard extends Animal {
 
 	@Column(name="bec")
 	private Double tailleBec;
 
+	public Canard() {}
 	
 	public Canard(Double poids, String espece, Double tailleBec) {
 		super(poids, espece);
