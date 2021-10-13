@@ -59,7 +59,7 @@ public class Planete {
 	@OneToMany(mappedBy = "planete")
 	private List<Satellite> satellites;
 	
-	
+
 
 	public Planete() {}
 	

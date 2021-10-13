@@ -110,7 +110,16 @@ public class App {
 		Planete terre = new Planete("terre",TypePlanete.Tellurique,12742.0,solaire,asteroides,atm);
 	
 		
-		Satellite s = new Satellite(terre);
+		Satellite s1 = new Satellite("Sat1",terre);
+		
+		Satellite s2 = new Satellite("Sat2",terre);
+		s2.setManager(s1);
+		
+		Satellite s3 = new Satellite("Sat3",terre);
+		s3.setManager(s2);
+		
+		
+		
 		
 		
 		em.getTransaction().begin();
@@ -120,15 +129,66 @@ public class App {
 		em.persist(a2);
 		em.persist(a3);
 		em.persist(terre);
-		em.persist(s);
+		em.persist(s1);
+		em.persist(s2);
+		em.persist(s3);
+		
 		
 		em.getTransaction().commit();
 		
 		em.close();
 		
+		
+		em=emf.createEntityManager();
+		
+		Satellite sBdd = em.find(Satellite.class, 3);
+		sBdd.setNom("Lune");
+		em.merge(sBdd);
+	
+		em.close();
+		
+		
+		em=emf.createEntityManager();
+
+		//Satellite s = em.find(Satellite.class, 3);
+		s3=em.merge(s3);
+		em.remove(s3);
+		
+		em.close();
+		
+		
+		em=emf.createEntityManager();
+		System.out.println(em.find(Satellite.class, 3));
+		em.close();
+		
 		emf.close();
 		
 		
+	}	
+		
+		
+		
+		/*
+		 * C => persist(objet)
+		 * RAll => ?
+		 * ROne => find(Class.class,id);
+		 * U => merge(objet);
+		 * D => remove(objet);
+		 */
+		 
+	
+	/*Planete p ;
+	 *  persist(p) => p est managed
+	 *  p = find() => p est managed
+	 *  Planete p2 = merge(p) =>  p n'est pas managed , p2 est managed
+	 *  
+	 * 	remove(p) => il faut p managed 
+	 * 
+	*/
 	}
 
-}
+	
+	
+	
+	
+
