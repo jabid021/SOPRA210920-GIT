@@ -9,23 +9,27 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 //opt
-@Table(name="planet")
+@Table(name="planet",uniqueConstraints=@UniqueConstraint(columnNames = { "lib","diametre","typePlanete" }))
 
 public class Planete {
 	
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY )
+	@Column(name="idDeLaPlanete")
 	private int id;
-	@Column(name="lib",columnDefinition = "VARCHAR(12)",unique = true)
+	@Column(name="lib",columnDefinition = "VARCHAR(12)")
 	
 	private String libelle;
 	
@@ -36,12 +40,20 @@ public class Planete {
 	
 	
 	@ManyToOne
+	@JoinColumn(name="id_systeme")
 	private Systeme solaire;
 	
 	@ManyToMany
+	@JoinTable
+	(
+		name="proxi",
+		joinColumns = @JoinColumn(name="idPlanete"),
+		inverseJoinColumns = @JoinColumn(name="idAsteroide")
+	)
 	private List<Asteroide> asteroides;
 	
 	@OneToOne
+	@JoinColumn(name="atm")
 	private ATM atm;
 	
 	@OneToMany(mappedBy = "planete")
