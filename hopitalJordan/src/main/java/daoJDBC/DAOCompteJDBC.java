@@ -24,11 +24,7 @@ public class DAOCompteJDBC implements IDAOCompte {
 	}
 
 	@Override
-	public void insert(Compte o) {
-	}
-
-	@Override
-	public Compte update(Compte o) {
+	public Compte save(Compte o) {
 		return null;
 	}
 
