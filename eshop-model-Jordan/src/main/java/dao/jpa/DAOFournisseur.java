@@ -4,28 +4,29 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import dao.IDAOSatellite;
-import model.Satellite;
+import dao.IDAOFournisseur;
+import model.Fournisseur;
 import util.Context;
 
-public class DAOSatellite implements IDAOSatellite{
+public class DAOFournisseur implements IDAOFournisseur{
 
 	@Override
-	public Satellite findById(Integer id) {
+	public Fournisseur findById(Integer id) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Satellite objet = em.find(Satellite.class, id);
+		Fournisseur objet = em.find(Fournisseur.class, id);
 		em.close();
 		return objet;
 	}
 
 	@Override
-	public List<Satellite> findAll() {
+	public List<Fournisseur> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+
 	@Override
-	public Satellite save(Satellite o) {
+	public Fournisseur save(Fournisseur o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);
@@ -35,7 +36,7 @@ public class DAOSatellite implements IDAOSatellite{
 	}
 
 	@Override
-	public void delete(Satellite o) {
+	public void delete(Fournisseur o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);

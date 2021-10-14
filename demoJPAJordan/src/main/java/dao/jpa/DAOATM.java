@@ -24,17 +24,9 @@ public class DAOATM implements IDAOATM{
 		return null;
 	}
 
-	@Override
-	public void insert(ATM o) {
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		em.persist(o);
-		em.getTransaction().commit();
-		em.close();
-	}
 
 	@Override
-	public ATM update(ATM o) {
+	public ATM save(ATM o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);

@@ -8,7 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+
+@NamedQueries({ 
+	@NamedQuery( 
+			name="Produit.findByLibelle", 
+			query="select p from Produit p where p.libelle = :lelibelle") 
+			}) 
 
 @Entity
 public class Produit {

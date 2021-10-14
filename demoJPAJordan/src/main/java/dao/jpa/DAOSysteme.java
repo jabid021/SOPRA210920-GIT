@@ -24,17 +24,9 @@ public class DAOSysteme implements IDAOSysteme{
 		return null;
 	}
 
-	@Override
-	public void insert(Systeme o) {
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		em.persist(o);
-		em.getTransaction().commit();
-		em.close();
-	}
 
 	@Override
-	public Systeme update(Systeme o) {
+	public Systeme save(Systeme o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);

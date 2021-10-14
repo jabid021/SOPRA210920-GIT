@@ -3,29 +3,34 @@ package dao.jpa;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
-import dao.IDAOSatellite;
-import model.Satellite;
+import dao.IDAOProduit;
+import model.Produit;
 import util.Context;
 
-public class DAOSatellite implements IDAOSatellite{
+public class DAOProduit implements IDAOProduit{
 
 	@Override
-	public Satellite findById(Integer id) {
+	public Produit findById(Integer id) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Satellite objet = em.find(Satellite.class, id);
+		Produit objet = em.find(Produit.class, id);
 		em.close();
 		return objet;
 	}
 
 	@Override
-	public List<Satellite> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Produit> findAll() {
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		Query requete = em.createQuery("from Produit p",Produit.class);
+		List<Produit> produits = requete.getResultList();
+		em.close();
+		return produits;
 	}
 
+
 	@Override
-	public Satellite save(Satellite o) {
+	public Produit save(Produit o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);
@@ -35,7 +40,7 @@ public class DAOSatellite implements IDAOSatellite{
 	}
 
 	@Override
-	public void delete(Satellite o) {
+	public void delete(Produit o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);

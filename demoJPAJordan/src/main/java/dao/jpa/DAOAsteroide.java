@@ -24,17 +24,9 @@ public class DAOAsteroide implements IDAOAsteroide{
 		return null;
 	}
 
-	@Override
-	public void insert(Asteroide o) {
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		em.persist(o);
-		em.getTransaction().commit();
-		em.close();
-	}
 
 	@Override
-	public Asteroide update(Asteroide o) {
+	public Asteroide save(Asteroide o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);

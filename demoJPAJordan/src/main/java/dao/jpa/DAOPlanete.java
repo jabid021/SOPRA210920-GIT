@@ -24,17 +24,9 @@ public class DAOPlanete implements IDAOPlanete{
 		return null;
 	}
 
-	@Override
-	public void insert(Planete o) {
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		em.persist(o);
-		em.getTransaction().commit();
-		em.close();
-	}
 
 	@Override
-	public Planete update(Planete o) {
+	public Planete save(Planete o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);
