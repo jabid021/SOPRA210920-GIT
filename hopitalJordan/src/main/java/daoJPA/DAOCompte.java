@@ -1,37 +1,36 @@
-package dao.jpa;
+package daoJPA;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import dao.IDAOPersonne;
-import model.Personne;
-import model.Produit;
+import dao.IDAOCompte;
+import model.Compte;
 import util.Context;
 
-public class DAOPersonne implements IDAOPersonne{
+public class DAOCompte implements IDAOCompte{
 
 	@Override
-	public Personne findById(Integer id) {
+	public Compte findById(Integer id) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Personne objet = em.find(Personne.class, id);
+		Compte objet = em.find(Compte.class, id);
 		em.close();
 		return objet;
 	}
 
 	@Override
-	public List<Personne> findAll() {
+	public List<Compte> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query requete = em.createQuery("from Personne p",Personne.class);
-		List<Personne> personnes = requete.getResultList();
+		Query requete = em.createQuery("from Compte c",Compte.class);
+		List<Compte> comptes = requete.getResultList();
 		em.close();
-		return personnes;
+		return comptes;
 	}
 
 
 	@Override
-	public Personne save(Personne o) {
+	public Compte save(Compte o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);
@@ -41,7 +40,7 @@ public class DAOPersonne implements IDAOPersonne{
 	}
 
 	@Override
-	public void delete(Personne o) {
+	public void delete(Compte o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);
@@ -51,16 +50,16 @@ public class DAOPersonne implements IDAOPersonne{
 	}
 
 	@Override
-	public Personne connect(String login, String password) {
+	public Compte connect(String login, String password) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 
-		Query requeteConnect = em.createQuery("Select p from Personne p where p.login=:login and p.password=:password",Personne.class);
+		Query requeteConnect = em.createQuery("Select c from Compte c where c.login=:login and c.password=:password",Compte.class);
 		requeteConnect.setParameter("login", login);
 		requeteConnect.setParameter("password", password);
-		Personne connected=null;
+		Compte connected=null;
 
 		try {
-			connected =  (Personne) requeteConnect.getSingleResult();
+			connected =  (Compte) requeteConnect.getSingleResult();
 		}
 		catch(Exception e) {}
 
