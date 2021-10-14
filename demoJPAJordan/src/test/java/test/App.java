@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import dao.IDAOPlanete;
 import heritage.joined.Avion;
 import heritage.joined.Bateau;
 import heritage.joined.Voiture;
@@ -22,6 +23,7 @@ import model.Planete;
 import model.Satellite;
 import model.Systeme;
 import model.TypePlanete;
+import util.Context;
 
 public class App {
 
@@ -92,7 +94,9 @@ public class App {
 		
 	}
 	
-	public static void main(String[] args) {
+	
+	public static void demoEmf() 
+	{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("configJPA");
 		EntityManager em = emf.createEntityManager();
 		
@@ -164,8 +168,7 @@ public class App {
 		emf.close();
 		
 		
-	}	
-		
+
 		
 		
 		/*
@@ -186,9 +189,25 @@ public class App {
 	 * 
 	*/
 	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+		//IDAOPlanete daoP = Context.getInstance().getDaoPlanete();
+		
+		
+		//System.out.println(daoP.findById(1));
+		
+		
+		System.out.println(Context.getInstance().getDaoPlanete().findById(1).getLibelle());
+		
+		Context.getInstance().closeEmf();
+		
+	}
 
 	
-	
+}
 	
 	
 

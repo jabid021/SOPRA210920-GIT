@@ -4,12 +4,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produit {
@@ -22,8 +21,8 @@ public class Produit {
 	private double prix;
 	
 	
-	@ManyToMany(mappedBy="achats")
-	private List<Client> acheteurs;
+	@OneToMany(mappedBy = "produit")
+	private List<Achat> acheteurs;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Fournisseur fournisseur;
@@ -81,12 +80,12 @@ public class Produit {
 
 	
 
-	public List<Client> getAcheteurs() {
+	public List<Achat> getAcheteurs() {
 		return acheteurs;
 	}
 
 
-	public void setAcheteurs(List<Client> acheteurs) {
+	public void setAcheteurs(List<Achat> acheteurs) {
 		this.acheteurs = acheteurs;
 	}
 

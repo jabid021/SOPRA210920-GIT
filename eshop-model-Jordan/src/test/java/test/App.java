@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import model.Achat;
 import model.Client;
 import model.Fournisseur;
 import model.Produit;
@@ -24,20 +25,23 @@ public class App {
 		Produit p1 = new Produit("PS5",800,f);
 		Produit p2 = new Produit("Switch",15,f);
 		
-		List<Produit> produits = new ArrayList();
+		Achat a1 = new Achat(p1,c);
+		Achat a2 = new Achat(p2,c);
 		
-		produits.add(p1);
-		produits.add(p2);
-		
-		c.setAchats(produits);
+	
 		
 		
 		em.getTransaction().begin();
 		//em.persist(f);
 		//em.persist(p1);
 		//em.persist(p2);
-		em.persist(c);
+		//em.persist(c);
+		
+		System.out.println(a1);
+		em.persist(a1);
+		em.persist(a2);
 	
+		System.out.println(a1);
 		
 		
 		
@@ -50,14 +54,14 @@ public class App {
 		em=emf.createEntityManager();
 		
 		Produit produit = em.find(Produit.class, 1);
-		em.close();
+		
 		
 
-		for(Client client : produit.getAcheteurs()) 
+		for(Achat achat : produit.getAcheteurs()) 
 		{
-			System.out.println(client.getNom());
+			System.out.println(achat.getDateAchat());
 		}
-		
+		em.close();
 		//System.out.println(clientBdd);
 		
 		//@ToOne => Eager
