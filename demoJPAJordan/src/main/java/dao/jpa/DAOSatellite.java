@@ -24,6 +24,10 @@ public class DAOSatellite implements IDAOSatellite{
 		return null;
 	}
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	@Override
 	public Satellite save(Satellite o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
