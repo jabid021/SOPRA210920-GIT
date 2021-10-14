@@ -23,12 +23,18 @@ public abstract class Personne {
 	@Column(name="firstname")
 	protected String prenom;
 	
+	@Column(unique = true)
+	protected String login;
+	protected String password;
+	
 	public Personne() {
 	}
 
-	public Personne(String nom, String prenom) {
+	public Personne(String login,String password,String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
+		this.login=login;
+		this.password=password;
 	}
 
 	public int getId() {
@@ -53,6 +59,22 @@ public abstract class Personne {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

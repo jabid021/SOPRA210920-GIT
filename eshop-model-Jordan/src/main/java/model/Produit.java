@@ -32,7 +32,7 @@ public class Produit {
 	@OneToMany(mappedBy = "produit")
 	private List<Achat> acheteurs;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private Fournisseur fournisseur;
 	
 	

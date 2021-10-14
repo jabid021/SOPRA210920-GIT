@@ -1,37 +1,36 @@
-package dao.jpa;
+package daoJPA;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import dao.IDAOClient;
-import model.Client;
-import model.Produit;
+import dao.IDAOPatient;
+import model.Patient;
 import util.Context;
 
-public class DAOClient implements IDAOClient{
+public class DAOPatient implements IDAOPatient{
 
 	@Override
-	public Client findById(Integer id) {
+	public Patient findById(Integer id) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Client objet = em.find(Client.class, id);
+		Patient objet = em.find(Patient.class, id);
 		em.close();
 		return objet;
 	}
 
 	@Override
-	public List<Client> findAll() {
+	public List<Patient> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query requete = em.createQuery("from Client c",Client.class);
-		List<Client> clients = requete.getResultList();
+		Query requete = em.createQuery("from Patient p",Patient.class);
+		List<Patient> patients = requete.getResultList();
 		em.close();
-		return clients;
+		return patients;
 	}
 
 
 	@Override
-	public Client save(Client o) {
+	public Patient save(Patient o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);
@@ -41,7 +40,7 @@ public class DAOClient implements IDAOClient{
 	}
 
 	@Override
-	public void delete(Client o) {
+	public void delete(Patient o) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		o=em.merge(o);

@@ -1,19 +1,38 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Patient implements Serializable {
 
-	
+	@Id
 	private int id;
 	private String nom;
 	private String prenom;
+	@OneToMany(mappedBy = "patient")
+	private List<Visite> visites;
 	
+	public Patient() {}
 	
 	public Patient(int id, String nom, String prenom) {
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
+	}
+
+
+	public List<Visite> getVisites() {
+		return visites;
+	}
+
+
+	public void setVisites(List<Visite> visites) {
+		this.visites = visites;
 	}
 
 

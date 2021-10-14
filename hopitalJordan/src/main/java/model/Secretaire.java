@@ -1,7 +1,10 @@
 package model;
 
-public class Secretaire extends Compte {
+import javax.persistence.Entity;
 
+@Entity
+public class Secretaire extends Compte {
+	public Secretaire() {}
 	public Secretaire(String login) {
 		super(login);
 	}
@@ -11,6 +14,6 @@ public class Secretaire extends Compte {
 		return "Secretaire [id=" + id + ", login=" + login + ", password=" + password + "]";
 	}
 
-	
-	
+
+
 }

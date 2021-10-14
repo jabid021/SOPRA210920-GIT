@@ -26,7 +26,7 @@ public class DAOVisiteJDBC implements IDAOVisite {
 	}
 
 	@Override
-	public void insert(Visite v) {
+	public Visite save(Visite v) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/hopital","root","");
@@ -49,12 +49,9 @@ public class DAOVisiteJDBC implements IDAOVisite {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public Visite update(Visite o) {
 		return null;
 	}
+
 
 	@Override
 	public void delete(Visite o) {

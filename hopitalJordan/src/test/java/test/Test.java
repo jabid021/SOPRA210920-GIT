@@ -57,7 +57,7 @@ public class Test {
 		switch(choix)
 		{
 		case 1 : seConnecter();break;
-		case 2 : System.exit(0);
+		case 2 : System.exit(0);Context.getInstance().closeEmf();
 		}
 		menuPrincipal();
 	}
@@ -189,7 +189,7 @@ public class Test {
 			String nom=saisieString("Saisir le nom du patient");
 			String prenom=saisieString("Saisir le prenom du patient");
 			p=new Patient(idPatient,nom,prenom);
-			Context.getInstance().getDaoP().insert(p);
+			Context.getInstance().getDaoP().save(p);
 		}
 		Context.getInstance().getFileAttente().add(p);
 		System.out.println("Patient "+idPatient+" ajouté à la file");
@@ -228,7 +228,7 @@ public class Test {
 		
 		for(Visite v : m.getVisites()) 
 		{
-			Context.getInstance().getDaoV().insert(v);
+			Context.getInstance().getDaoV().save(v);
 		}
 		m.getVisites().clear();
 	}
@@ -257,7 +257,10 @@ public class Test {
 	}
 
 	public static void main(String[] args) {
+		
+	
 		menuPrincipal();
+		//Context.getInstance().closeEmf();
 
 	}
 

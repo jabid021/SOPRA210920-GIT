@@ -25,8 +25,8 @@ public class Client extends Personne {
 	
 	public Client() {}
 	
-	public Client(String nom, String prenom, int age, LocalDate dateNaissance) {
-		super(nom, prenom);
+	public Client(String login,String password,String nom, String prenom, int age, LocalDate dateNaissance) {
+		super(login,password,nom, prenom);
 		this.age = age;
 		this.dateNaissance = dateNaissance;
 	}

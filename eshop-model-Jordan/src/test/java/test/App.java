@@ -1,8 +1,8 @@
 package test;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,14 +19,21 @@ import util.Context;
 
 public class App {
 
+	public static String saisieString(String msg) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println(msg);
+		return sc.nextLine();
+	}
+	
 	
 	private static void testBdd() 
 	{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("configJPA");
 		EntityManager em = emf.createEntityManager();
 		
-		Client c = new Client("Abid","Jordan",28,LocalDate.parse("1993-05-01"));
-		Fournisseur f = new Fournisseur("Doe", "John", "AJC");
+		Client c = new Client("jabid","1234","Abid","Jordan",28,LocalDate.parse("1993-05-01"));
+		Fournisseur f = new Fournisseur("jo","password","Doe", "John", "AJC");
 		Produit p1 = new Produit("PS5",800,f);
 		Produit p2 = new Produit("Switch",15,f);
 		
@@ -77,9 +84,10 @@ public class App {
 		emf.close();
 		
 	}
-	public static void main(String[] args) {
-		
-		
+	
+	public static void demoJPQL() 
+	{
+
 		/*Fournisseur f = new Fournisseur("Doe", "John", "AJC");
 		
 		
@@ -153,6 +161,29 @@ public class App {
 		
 		System.out.println(connected);
 		em.close();
+		
+		Context.getInstance().closeEmf();
+	}
+	public static void main(String[] args) {
+		
+		//Client c = new Client("jabid","1234","Abid","Jordan",28,LocalDate.parse("1993-05-01"));
+		//Fournisseur f = new Fournisseur("jo","password","Doe", "John", "AJC");
+		
+		
+		//Context.getInstance().getDaoPersonne().save(c);
+		//Context.getInstance().getDaoPersonne().save(f);
+		
+		String login = saisieString("Saisir login");
+		String password= saisieString("Saisir password");
+		Personne p = Context.getInstance().getDaoPersonne().connect(login, password);
+		
+		if(p==null) {System.out.println("Invalides");}
+		else 
+		{
+			System.out.println(p);
+		}
+		
+		
 		
 		Context.getInstance().closeEmf();
 	}

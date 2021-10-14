@@ -20,8 +20,8 @@ public class Fournisseur extends Personne{
 
 	public Fournisseur() {}
 	
-	public Fournisseur(String nom, String prenom, String societe) {
-		super(nom, prenom);
+	public Fournisseur(String login,String password,String nom, String prenom, String societe) {
+		super(login,password,nom, prenom);
 		this.societe = societe;
 	}
 

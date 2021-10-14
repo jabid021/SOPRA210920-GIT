@@ -101,6 +101,7 @@ public class App {
 		EntityManager em = emf.createEntityManager();
 		
 		ATM atm = new ATM();
+		ATM atm2 = new ATM();
 		Systeme solaire= new Systeme();
 		Asteroide a1 = new Asteroide();
 		Asteroide a2 = new Asteroide();
@@ -111,8 +112,17 @@ public class App {
 		asteroides.add(a3);
 		
 		
-		Planete terre = new Planete("terre",TypePlanete.Tellurique,12742.0,solaire,asteroides,atm);
-	
+		Asteroide a4 = new Asteroide();
+		Asteroide a5 = new Asteroide();
+		Asteroide a6 = new Asteroide();
+		List<Asteroide> asteroides2 =new ArrayList();
+		asteroides2.add(a4);
+		asteroides2.add(a5);
+		asteroides2.add(a6);
+		
+		
+		Planete terre = new Planete("Terre",TypePlanete.Tellurique,12742.0,solaire,asteroides,atm);
+		Planete mars = new Planete("Mars",TypePlanete.Tellurique,6779.0,solaire,asteroides2,atm2);
 		
 		Satellite s1 = new Satellite("Sat1",terre);
 		
@@ -128,11 +138,16 @@ public class App {
 		
 		em.getTransaction().begin();
 		em.persist(atm);
+		em.persist(atm2);
 		em.persist(solaire);
 		em.persist(a1);
 		em.persist(a2);
 		em.persist(a3);
+		em.persist(a4);
+		em.persist(a5);
+		em.persist(a6);
 		em.persist(terre);
+		em.persist(mars);
 		em.persist(s1);
 		em.persist(s2);
 		em.persist(s3);
@@ -143,7 +158,7 @@ public class App {
 		em.close();
 		
 		
-		em=emf.createEntityManager();
+		/*em=emf.createEntityManager();
 		
 		Satellite sBdd = em.find(Satellite.class, 3);
 		sBdd.setNom("Lune");
@@ -164,7 +179,7 @@ public class App {
 		em=emf.createEntityManager();
 		System.out.println(em.find(Satellite.class, 3));
 		em.close();
-		
+		*/
 		emf.close();
 		
 		
@@ -194,15 +209,16 @@ public class App {
 	
 	public static void main(String[] args) {
 		
+		//demoEmf();
 		//IDAOPlanete daoP = Context.getInstance().getDaoPlanete();
 		
 		
 		//System.out.println(daoP.findById(1));
 		
 		
-		System.out.println(Context.getInstance().getDaoPlanete().findById(1).getLibelle());
+		//System.out.println(Context.getInstance().getDaoPlanete().findById(1).getLibelle());
 		
-		Context.getInstance().closeEmf();
+		//Context.getInstance().closeEmf();
 		
 	}
 
