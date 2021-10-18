@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 
 @Entity
 public class Visite {
@@ -27,6 +28,10 @@ public class Visite {
 	private LocalDate dateVisite;
 	private double prix=20;
 	private int salle;
+	
+	@Version
+	private int version;
+	
 	
 	
 	public Visite() {}
@@ -50,6 +55,9 @@ public class Visite {
 
 
 
+	public void setDateVisite(LocalDate dateVisite) {
+		this.dateVisite = dateVisite;
+	}
 	public int getId() {
 		return id;
 	}
@@ -122,6 +130,12 @@ public class Visite {
 
 
 
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
+	}
 	@Override
 	public String toString() {
 		return "Visite [id=" + id + ", medecin=" + medecin.login + ", patient=" + patient + ", dateVisite=" + dateVisite
