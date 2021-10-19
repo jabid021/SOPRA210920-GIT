@@ -130,6 +130,7 @@ public class TestLazy {
 	}
 	
 	
+
 	public static void showFullFetchNotWorking() 
 	{
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
