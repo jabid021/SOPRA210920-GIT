@@ -1,0 +1,49 @@
+<h1>Creation d'un pokemon ! </h1>
+<form>
+  <fieldset>
+<legend>Infos de connexion</legend>
+
+ID : <input type="hidden" value="1"><br><br>
+Login * : <input required value="Jordan" placeholder="Login" type="text" ><br><br>
+Mail * : <input value="jordan@ajc" type="email" required placeholder="email"><br><br>
+Naissance : <input type="date" min="2021-01-01" max="2021-10-19"><br><br>
+<!--Naissance : <input type="time" step="900"><br><br>-->
+<!--Naissance : <input type="week"><br><br>-->
+<!--URL * : <input type="url" required placeholder="url"><br><br>-->
+Password * : <input value="password "required placeholder="******" type="password"  >
+</fieldset>
+<fieldset>
+
+  <legend>Infos POKEMON</legend>
+Nom  : <input type="text" minlength="5" maxlength="9"><br><br>
+PV  * : <input required value="7" placeholder="PV" type="number" min=5 max=10 step=2><br><br>
+Note : <input type="range" min=1 max=10><br><br>
+Couleur du pokemon : <input type="color"><br><br>
+Couleur du pokemon :
+<select required name="choix">
+  <option value="R">Rouge</option>
+  <option value="J">Jaune</option>
+  <option selected value="B">Blanc</option>
+  <option value="N">Noir</option>
+  <option value="G">Gris</option>
+</select><br><br>
+
+Type : Feu <input type="checkbox"> Electrique <input type="checkbox"> Plante <input type="checkbox"> Eau <input type="checkbox"><br><br>
+Sexe : M<input name="sexe" type="radio"> F<input name="sexe" type="radio"> NC<input name="sexe" type="radio">
+
+
+
+</fieldset>
+<fieldset>
+  <legend>+</legend>
+Description : <textarea placeholder="commentaire" cols="80" rows="5" style="resize:none"></textarea>
+</fieldset>
+<input value="Creer" type="submit">
+<input value="Reset" type="reset">
+
+</form>
+<!-- saisie => input
+liste deroulante => select
+button => button (submit, refresh)
+zone de texte => textearea
+cases à cocher => checkbox-->
