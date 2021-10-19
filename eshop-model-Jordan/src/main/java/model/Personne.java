@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,9 @@ public abstract class Personne {
 	@Column(unique = true)
 	protected String login;
 	protected String password;
+	
+	@Embedded
+	protected Adresse adresse;
 	
 	public Personne() {
 	}
@@ -75,6 +79,14 @@ public abstract class Personne {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 	
 	

@@ -258,9 +258,17 @@ public class Test {
 
 	public static void main(String[] args) {
 		
+	Visite v = Context.getInstance().getDaoV().findById(1);
 	
-		menuPrincipal();
-		//Context.getInstance().closeEmf();
+	String wait = saisieString("Wait");
+	
+	v.setPrix(45);
+	//v.setSalle(8);
+	
+	Context.getInstance().getDaoV().save(v);
+	
+	//menuPrincipal();
+	Context.getInstance().closeEmf();
 
 	}
 
