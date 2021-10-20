@@ -1,11 +1,12 @@
-<h1>Creation d'un pokemon ! </h1>
-<form>
+<h1 >Creation d'un pokemon ! </h1>
+<form action="pageCible.html" method="get" enctype="multipart/form-data" >
   <fieldset>
 <legend>Infos de connexion</legend>
 
 ID : <input type="hidden" value="1"><br><br>
-Login * : <input required value="Jordan" placeholder="Login" type="text" ><br><br>
-Mail * : <input value="jordan@ajc" type="email" required placeholder="email"><br><br>
+
+<label for="loginForm">Login</label> * : <input name="login" id="loginForm" required value="Jordan" placeholder="Login" type="text" ><br><br>
+Mail * : <input value="jordan@ajc" name="email" type="email" required placeholder="email"><br><br>
 Naissance : <input type="date" min="2021-01-01" max="2021-10-19"><br><br>
 <!--Naissance : <input type="time" step="900"><br><br>-->
 <!--Naissance : <input type="week"><br><br>-->
@@ -28,8 +29,8 @@ Couleur du pokemon :
   <option value="G">Gris</option>
 </select><br><br>
 
-Type : Feu <input type="checkbox"> Electrique <input type="checkbox"> Plante <input type="checkbox"> Eau <input type="checkbox"><br><br>
-Sexe : M<input name="sexe" type="radio"> F<input name="sexe" type="radio"> NC<input name="sexe" type="radio">
+Type : <label for="typeFeu">Feu</label> <input id="typeFeu" type="checkbox"> Electrique <input id="typeElec" type="checkbox"> Plante <input id="typePlante" type="checkbox"> Eau <input id="typeEau" type="checkbox"><br><br>
+Sexe : <label for="mr">M</label><input id="mr" name="sexe" type="radio"> <label for="mme">F</label><input id="mme" name="sexe" type="radio"> <label for="nc">NC</label><input id="nc" name="sexe" type="radio">
 
 
 
@@ -41,7 +42,25 @@ Description : <textarea placeholder="commentaire" cols="80" rows="5" style="resi
 <input value="Creer" type="submit">
 <input value="Reset" type="reset">
 
+<input value="Send" type="file">
+
 </form>
+
+<!--
+<a href="findLogement.html?id=145">Logement 145</a>
+<a href="findLogement.html?id=200">Logement 200</a>
+<a href="findLogement.html?id=10">Logement 10</a>
+-->
+
+
+
+
+<input type="button" value="OK">
+<button>Ok</button>
+
+<audio src="src/audio.mp3" controls ></audio>
+<video src="src/video.mp4" controls width="400" poster="img/ajc.png"></video><br><br><br><br><br><br><br><br>
+
 <!-- saisie => input
 liste deroulante => select
 button => button (submit, refresh)
