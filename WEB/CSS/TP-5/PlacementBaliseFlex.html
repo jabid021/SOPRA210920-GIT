@@ -1,106 +1,75 @@
 <style>
+	body{margin:0;}
 
-body{margin:0;}
+	#header
+	{
+		background-color:grey;
+		height:15%;
+		border:solid black 2px;
+		display:flex;
+	}
 
-#header
-{
-	background-color:grey;
-	height:15%;
-	border:solid black 2px;
-}
+	#logo
+	{
+		display:flex;
+		background-color:white;
+		width:10%;
+		justify-content:center;
+		align-items:center;
+		font-size:60px;
+		font-weight:bold;
+	}
 
-#logo
-{
-	background-color:white;
-	display:inline-block;
-	width:10%;
-	height:100%;
-	text-align:center;
+	#accueil
+	{
+		display:flex;
+		width:90%;
+		justify-content:center;
+		align-items:center;
+		font-size:40px;
+	}
 
-}
+	#content
+	{
+		display:flex;
+		height:100%;
+	}
 
-#accueil
-{
-	margin-left:-5px;
-	display:inline-block;
-	width:90%;
-	height:100%;
-	text-align:center;
+	#menuLeft
+	{
+		width:15%;
+	}
+	#center
+	{
+		width:70%;
+	}
 
-}
+	#menuRight
+	{
+		width:15%;
+	}
 
-#txtLogo
-{
-	position:relative;
-	top:20%;
-	font-size:60px;
-	font-weight:bold;
-}
-#textAccueil
-{
-	position:relative;
-	top:20%;
-	font-size:40px;
-}
-
-#content
-{
-		height:95%;
-}
-
-#menuLeft
-{
-	float:left;
-	width:15%;
-}
-#center
-{
-	float:left;
-	width:70%
-}
-#menuRight
-{
-	display:inline-block;
-	width:15%;
-}
-
-li
-{list-style:none;}
-
-
-footer
-{
-		background-color:yellow;
+	footer
+	{
+		display:flex;
 		height:8%;
-}
+		background-color:yellow;
+		justify-content:center;
+		align-items:center;
+	}
 
-#fLeft
-{
-	display:inline-block;
-	width:45%;
-	height:100%;
-}
-#fRight
-{
-	display:inline-block;
-	width:54%;
-	height:100%;
-}
+	#fleft
+	{
+		width:45%;
+		margin-left:15px;
+	}
 
-#fLeft a
-{
-	position:relative;
-	top:40%;
-	left:15px;
-}
+	#fRight
+	{
+		width:55%;
+	}
 
-#fRight span
-{
-	position:relative;
-	top:40%;
-}
-
-
+	li{list-style:none;}
 
 </style>
 
@@ -109,9 +78,8 @@ footer
 	<body>
 		<div id="site">
 			<div id="header">
-				<div id="logo"><span id="txtLogo">Logo</span></div>
-				<div id="accueil"><span id="textAccueil">ACCUEIL</span>
-				</div>
+				<div id="logo">Logo</div>
+				<div id="accueil">ACCUEIL	</div>
 
 			</div>
 
