@@ -1,0 +1,78 @@
+
+<style>
+
+#parent + div
+{
+  color:orange;
+}
+
+#parent div
+{
+    color:red;
+}
+
+#parent > div
+{
+  border:solid black 2px;
+}
+
+
+a
+{
+  color:orange;
+}
+
+
+a:hover
+{
+  color:red;
+  font-size:60px;
+}
+
+p:hover
+{
+  color:red;
+  /*font-size:60px;*/
+}
+p
+{
+  font-family : cursive  serif;
+}
+input:focus
+{
+  color:green;
+  background-color:pink;
+}
+</style>
+
+
+<input type="text" value="Jordan">
+
+<a href="tototf.com">www.ajc-formation.fr</a>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<div id="parent">
+  Text Parent
+  <div class="enfant">
+    Text enfant 1
+  </div>
+
+
+  <div class="enfant">
+    Texte enfant 2
+  </div>
+
+
+  <div class="enfant">
+    Text enfant 3
+    <div class="penfant">
+      Texte petit enfant 1
+    </div>
+  </div>
+</div>
+
+<div class="frere">
+  Texte frere
+</div>
