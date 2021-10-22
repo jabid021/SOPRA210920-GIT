@@ -1,4 +1,4 @@
-<h1>0:0</h1>
+<h1 id="timer">00:08</h1>
 
 
 
@@ -7,10 +7,15 @@
 
 var min = 0;
 var sec = 0;
+var minAffiche;
+var secAffiche;
 
 
 
 
+minAffiche=(min<10) ? "0"+min ? min;
+secAffiche=(sec<10) ? "0"+sec ? sec;
 
+timer.innerHTML=minAffiche+":"+secAffiche;
 
 </script>
