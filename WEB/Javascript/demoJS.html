@@ -6,6 +6,99 @@
 
 <script>
 
+var zoom = ["Jordan","Titi","John","Toto"];
+
+var notes = [5,15,26,31,4];
+
+var person2 = {"nom":"Doe","prenom":"John","age":42};
+console.log(person2);
+
+
+
+var person = new Object();
+person.prenom="Jordan";
+person.nom="Abid";
+person.age=28;
+console.log(person);
+
+
+
+var listePersonne = [{"nom":"Doe","prenom":"John","age":42},{"prenom":"Toto","nom":"titi","age":20},person];
+
+console.log(listePersonne);
+var param="age";
+
+alert(person.age);
+alert(person[param]);
+alert(person["age"]);
+//var zoom2= new Array(30);
+//console.log(zoom2);
+
+
+zoom[zoom.length]="Tutu";
+zoom.push("Tata");
+//zoom[100]="prenom";
+//zoom.length=10;
+
+
+/*console.log("1er : "+zoom.shift());
+console.log("dernier : "+zoom.pop());
+console.log(zoom); //Le premier et le dernier sont retirés du tableau
+*/
+
+
+//console.log(zoom.sort()); //trier le tableau croissant
+console.log(zoom.reverse()); // inverser l'ordre du tableau
+console.log(notes.sort(compare));
+
+function compare(a,b){return a-b;}
+
+
+//alert(zoom.join("*"));
+
+/*console.log(zoom);
+console.log(zoom[1]);
+
+
+
+var test = "10";
+if(test==="10"){alert("egal");}
+else {alert("diff");}
+
+switch(test)
+{
+  case 10 : console.log("c'est egal");break;
+  default : console.log("c'est diff");break;
+}
+
+while(test<20)
+{
+  console.log(++test);
+}
+
+
+for(let i=0;i<=10;i++)
+{
+  console.log(i);
+}
+
+//Impossible de manipuler la variable i en dehors de la boucle (à cause de la déclaration let)
+console.log(i);
+*/
+
+
+for(s in zoom )
+{
+  console.log("element  "+s+" : "+zoom[s]);
+}
+
+for(s of listePersonne )
+{
+  console.log(s.prenom);
+}
+
+
+
 function test()
 {
   alert("Message important !");
