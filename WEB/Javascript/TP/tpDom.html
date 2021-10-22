@@ -15,5 +15,29 @@
 </body>
 
 
+<script>
 
+var typeElement = prompt("Quel element custom ? (id/class/tag)");
+var couleur = prompt("Quelle couleur ?");
 
+if(typeElement=="id")
+{
+  paragPrinci.style.color=couleur;
+}
+else if(typeElement=="class")
+{
+  for(element of document.getElementsByClassName("secondaire"))
+  {
+    element.style.color=couleur;
+  }
+}
+else if(typeElement=="tag")
+{
+  var typeTag= prompt("Quel tag changer ? (p,h3,body)");
+  for(element of document.getElementsByTagName(typeTag))
+  {
+    element.style.color=couleur;
+  }
+}
+
+</script>
