@@ -1,0 +1,36 @@
+<script>
+
+
+var pays=
+[
+  {"pays":"Madagscar","capitale":"Antananarivo"},
+  {"pays":"Norvege","capitale":"Oslo"},
+  {"pays":"France","capitale":"Marseille"},
+  {"pays":"Slovenie","capitale":"Ljubljana"}
+]
+var score=0;
+jeu();
+
+function jeu()
+{
+  for(p of pays)
+  {
+    var reponse=prompt("Quelle est la capitale du pays : "+p.pays);
+    if(reponse==p.capitale)
+    {
+      alert("Oui oui oui");
+      score++;
+    }
+    else
+    {
+      alert("Ah!");
+    }
+  }
+  console.log("Score de la partie : "+score+"/"+pays.length);
+}
+
+
+
+
+
+</script>

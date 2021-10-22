@@ -1,0 +1,80 @@
+<title>DEMO DOM</title>
+
+<div  attributDemo="uneValeur" id="d1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+<p id="p2"></p>
+<h1 class="uneClasse">Titre de la page</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="uneClasse">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<input id="login" type="text" value="Jordan">
+
+<input id="btn" type="button" value="OK">
+
+<script>
+//pointeurID();
+pointeurTags();
+
+function pointeurClass()
+{
+  var mesBalises = document.getElementsByClassName("uneClasse");
+  for(b of mesBalises)
+  {
+    b.style.color="red";
+    b.innerHTML="texte"
+  }
+}
+
+function pointeurTags()
+{
+  var mesBalises = document.getElementsByTagName("p");
+  for(b of mesBalises)
+  {
+    b.style.color="blue";
+    b.innerHTML="texte"
+    b.style.position="absolute";
+    b.style.left="50px";
+  }
+}
+
+function pointeurID()
+{
+  //document.title="HACK";
+console.log(document.title);
+var maBalise = document.getElementById("d1");
+maBalise.style.color="red";
+d1.style.color="blue";
+
+d1.style.backgroundColor="green";
+
+
+d1.style.setProperty("background-color","yellow");
+d1.style.setProperty("font-size","35px");
+alert(d1.style.color);
+
+console.log(d1.innerHTML);
+
+p2.innerHTML = d1.innerHTML;
+d1.innerHTML+="<ul><li>Nouveau Texte</li></ul>";
+
+console.log(maBalise);
+
+alert(login.value);
+login.value="Toto";
+
+
+
+alert(d1.getAttribute("attributDemo"));
+d1.setAttribute("attribut2","value");
+d1.removeAttribute("id");
+
+
+btn.setAttribute("disabled",true);
+btn.removeAttribute("disabled");
+}
+
+
+
+</script>
