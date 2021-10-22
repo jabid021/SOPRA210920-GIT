@@ -1,21 +1,28 @@
-<h1 id="timer">00:08</h1>
-
-
-
+<h1 id="timer">00:00</h1>
 
 <script>
-
-var min = 0;
-var sec = 0;
+var min = 59;
+var sec = 58;
 var minAffiche;
 var secAffiche;
 
+setInterval(chrono,1000);
+
+function chrono()
+{
+  sec++;
+  if(sec>59)
+  {
+    sec=0;
+    min++;
+    if(min>59){min=0;}
+  }
+  minAffiche=(min<10) ? "0"+min : min;
+  secAffiche=(sec<10) ? "0"+sec : sec;
+  timer.innerHTML=minAffiche+":"+secAffiche;
+}
 
 
 
-minAffiche=(min<10) ? "0"+min ? min;
-secAffiche=(sec<10) ? "0"+sec ? sec;
-
-timer.innerHTML=minAffiche+":"+secAffiche;
 
 </script>
