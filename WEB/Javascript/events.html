@@ -1,0 +1,65 @@
+<!-- <input id="btnId" onClick="demoClick(2)" onMouseover="demoOver()" onMouseout="demoOut()" type="button" value="click ?">-->
+<input id="btnId" onClick="demoClick(2)" type="button" value="click ?">
+
+<input  onDblclick="demoDblClick()" type="button" value="DBL click ?">
+<input type="text" id="login">
+
+
+<p onclick="clickP(151)">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p onClick="clickP(412)">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<script>
+
+
+btnId.onmouseover=demoMultiple;
+btnId.onmouseout=demoMultiple;
+
+login.onkeypress=demoKeyPress;
+function clickP(nb)
+{
+ alert(nb);
+}
+
+function demoKeyPress(event)
+{
+  if(event.keyCode==13)
+  {
+    alert(login.value);
+  }
+}
+
+function demoMultiple(event)
+{
+  console.log(event);
+  if(event.type=="mouseover"){  console.log("event souris over");}
+  else if(event.type=="mouseout"){  console.log("event souris out");}
+}
+
+
+function demoOut()
+{
+  console.log("on sort");
+}
+
+function demoOver(event)
+{
+  console.log(event);
+  console.log('on passe dessus');
+}
+function demoClick(id)
+{
+  console.log("CLICK sur le btn "+id);
+}
+
+function demoDblClick()
+{
+    console.log("DBLCLICK sur le btn");
+}
+
+
+
+
+
+</script>
