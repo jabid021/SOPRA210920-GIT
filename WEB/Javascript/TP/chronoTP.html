@@ -1,5 +1,12 @@
+<style>
+
+#timer{display:none;}
+</style>
+
+
 <input id="playBtn" type="button" value="Play">
-<input id="pauseBtn" type="button" value="Pause">
+<input id="pauseBtn" type="button" value="Pause" disabled>
+<input id="refreshBtn" type="button" value="Refresh" disabled>
 <h1 id="timer">00:00</h1>
 
 <script>
@@ -8,7 +15,32 @@ var sec = 0;
 var minAffiche;
 var secAffiche;
 
-setInterval(chrono,1000);
+playBtn.onclick=start;
+pauseBtn.onclick=pause;
+refreshBtn.onclick=refresh;
+var monTimer;
+
+function refresh()
+{
+  min=0;sec=0;
+  timer.innerHTML="00:00";
+}
+
+function start()
+{
+  monTimer=setInterval(chrono,1000);
+  timer.style.display="block";
+  playBtn.disabled=true;
+  pauseBtn.disabled=false;
+  refreshBtn.disabled=false;
+}
+
+function pause()
+{
+  clearInterval(monTimer);
+  playBtn.disabled=false;
+  pauseBtn.disabled=true;
+}
 
 function chrono()
 {
