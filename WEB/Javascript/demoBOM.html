@@ -1,0 +1,30 @@
+<form>
+<input type="text" >
+
+<input type="button" id="validate" value="valider">
+<input type="reset">
+</form>
+
+<noscript>
+  Vous n'avez pas de js !
+</noscript>
+<script>
+
+  //var ajcWindow =window.open("https://www.ajc-formation.fr","ajc");
+
+  //if (ajcWindow == null) alert("fenetre bloquee");
+  //else { }
+
+  validate.onclick=function()
+  {
+
+    alert(navigator.appName);
+    console.log(screen.width);
+    console.log(screen.height);
+    history.back(2);
+    //  location.href="chrono.html";
+    //location.reload();
+
+  }
+
+</script>
